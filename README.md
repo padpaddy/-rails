@@ -1,1 +1,1 @@
-# paddy-rails
+# -rails-pr-ex
