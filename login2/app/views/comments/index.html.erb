@@ -1,0 +1,55 @@
+<div id="comment">
+<div class="container">
+	<div class="row">
+		<div class="center mid">
+			<div class="user-info border">
+				<p class="block"></p>
+				<img src="<%= asset_path( 'user-image.png' ) %>" alt="" class="img img-rounded img-responsive pull-right border button-right" style="width:25px; border-radius: 100%;padding:2px;">
+			</div>
+			<div class="middle">
+				<div class="media border biggerdiv">
+					<div class="media-left">
+						<img src="<%= asset_path( 'user-image.png' ) %>" class="media-object" style="width:25px">
+					</div>
+					<div class="media-body">
+						<h4 class="media-heading"><%= @user.first_name + " " + @user.last_name %></h4>
+						<p><%= @post.content %></p>
+					</div>
+				</div>
+
+				<% flash.each do |key, value| %>
+				<div class="alert-green alert-<%= key %>"><%= value %></div>
+				<% end %>
+
+
+		
+				<%= form_for [@post, @comment], html: { class: "form_comment" } do |f|  %>
+				  <%= f.text_area :content, placeholder: "Add content..." , class:"border" %><br />
+
+				  <%= f.submit class:"btn btn-default border button-right pull-right", value:"Comment"%>
+
+				<% end %>
+				
+				<%if @comments %>
+					<% @comments.each do |comment| %>
+
+						<div class="media border">
+							<div class="media-left">
+								<img src="<%= asset_path( 'user-image.png' ) %>" class="media-object" style="width:25px">
+							</div>
+							<div class="media-body">
+								<h4 class="media-heading"><%= @current_user.first_name + " " + @current_user.last_name %></h4>
+								<p><%= comment.content %></p>
+							</div>
+						</div>
+					<%end%>
+				<% else %>
+					<p>Not found any comment!</p>
+				<% end %>
+			</div>
+		</div>
+	</div>
+</div>
+</div>
+
+

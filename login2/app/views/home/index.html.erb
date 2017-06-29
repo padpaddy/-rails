@@ -1,0 +1,37 @@
+<% flash.each do |key, value| %>
+<div class="alert-green alert-<%= key %>"><%= value %></div>
+<% end %>
+<div class="container">
+	<div class="row">
+		<div class="center mid">
+			<div class="user-info border">
+				<p class="block"><%=session[:user_id]%></p>
+				<img src="<%= asset_path( 'user-image.png' ) %>" alt="" class="img img-rounded img-responsive pull-right border" style="width:25px; border-radius: 100%;padding:2px;">
+			</div>
+			<div class="middle">
+				<%= form_for @post, as: :post, url: posts_path, html: { class: "form_post" } do |f|  %>
+				  <%= text_area :content, html: {placeholder: "Add content..."} %><br />
+
+				  <%= f.submit class:"btn btn-default"%>
+				<% end %>
+				
+				<%if @posts %>
+					<% @posts.each do |post| %>
+						<div class="media border">
+							<div class="media-left">
+								<img src="<%= asset_path( 'user-image.png' ) %>" class="media-object" style="width:25px">
+							</div>
+							<div class="media-body">
+								<h4 class="media-heading"><%= post.user.first_name + " " + post.user.last_name %></h4>
+								<p><%= post.content %></p>
+							</div>
+						</div>
+					<%end%>
+				<% else %>
+					<p>Not found any post!</p>
+				<% end %>
+			</div>
+		</div>
+	</div>
+</div>
+
