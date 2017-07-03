@@ -1,4 +1,7 @@
 # Rails application
+  - Rails 5.1, ruby 2.4p0
+  - rvm
+  
   - Gem use:
     - paperclip
     - better_errors
@@ -12,7 +15,7 @@
     - Image
   - Controller (4 controller)
   
-  - Testing (Not done)
+  - Testing with code (Not done)
 
 # Feature:
   - Sign up: localhost/users/sign_up
