@@ -1,18 +1,18 @@
 # Rails application
-  Gem use:
+  - Gem use:
     - paperclip
     - better_errors
     - bootstrap-sass
     - validates_email_format_of
-  Model use: (Created order)
+  - Model use: (Created order)
     - User
     - Session
     - Post
     - Comment
     - Image
-  Controller (4 controller)
+  - Controller (4 controller)
   
-  Testing (Not done)
+  - Testing (Not done)
 
 # Feature:
   - Sign up: localhost/users/sign_up
